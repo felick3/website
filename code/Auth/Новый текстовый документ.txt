@@ -1,0 +1,81 @@
+from flask import Flask, render_template, request, redirect, url_for, flash, session, g # Импорт всех необходимых инструментов Flask
+import sqlite3 # Импорт модуля для связи с БД SQLite
+import hashlib # Импорт модуля для хеширования паролей (безопасность)
+import re # Импорт модуля регулярных выражений для проверки текста
+
+app = Flask(__name__) # Создаем объект нашего веб-приложения
+app.secret_key = 'super_secret_key' # Устанавливаем секретный ключ для защиты сессий (куки)
+DATABASE = 'Users.db' # Переменная с именем файла базы данных
+
+def get_db(): # Функция, которая возвращает соединение с базой данных
+    db = getattr(g, '_database', None) # Пытаемся взять текущее соединение из глобального объекта g
+    if db is None: # Если соединения еще нет
+        db = g._database = sqlite3.connect(DATABASE) # Создаем новое соединение с файлом Users.db
+        db.row_factory = sqlite3.Row # Устанавливаем режим, чтобы строки БД превращались в словари
+    return db # Возвращаем соединение
+
+@app.teardown_appcontext # Декоратор, срабатывающий при завершении запроса
+def close_connection(exception): # Функция для автоматического закрытия БД
+    db = getattr(g, '_database', None) # Получаем соединение из объекта g
+    if db is not None: # Если соединение существует
+        db.close() # Закрываем его, чтобы освободить ресурсы
+
+def check_password_security(password): # Функция для проверки сложности пароля
+    if len(password) < 8: return "Пароль должен быть не менее 8 символов." # Проверка минимальной длины
+    if not re.search(r"\d", password): return "Нужна хотя бы одна цифра." # Проверка наличия цифры
+    if not re.search(r"[A-Z]", password): return "Нужна хотя бы одна заглавная буква." # Проверка заглавной буквы
+    if not re.search(r"[!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>/?]", password): return "Нужен спецсимвол." # Проверка спецсимвола
+    return None # Если все проверки прошли, возвращаем None (ошибок нет)
+
+@app.route('/') # Главная страница (регистрация)
+def index(): # Функция отображения главной страницы
+    return render_template('index.html') # Рендерим HTML-шаблон index.html
+
+@app.route('/register', methods=['POST']) # Маршрут для обработки данных с формы регистрации
+def register(): # Функция регистрации пользователя
+    name = request.form['name'] # Забираем имя из отправленной формы
+    email = request.form['email'] # Забираем email
+    password = request.form['password'] # Забираем пароль
+    
+    error = check_password_security(password) # Вызываем функцию проверки сложности пароля
+    if error: # Если функция вернула ошибку
+        flash(error, "error") # Передаем ошибку в flash-сообщение
+        return redirect(url_for('index')) # Возвращаем пользователя на страницу регистрации
+    
+    db = get_db() # Получаем доступ к базе данных
+    if db.execute("SELECT id FROM users WHERE email = ?", (email,)).fetchone(): # Ищем, есть ли такой email в БД
+        flash("Email уже занят", "error") # Если нашли, сообщаем об ошибке
+        return redirect(url_for('index')) # Перенаправляем назад
+    
+    hashed_pw = hashlib.sha256(password.encode()).hexdigest() # Хешируем пароль (превращаем в набор символов)
+    db.execute("INSERT INTO users (name, password, email) VALUES (?, ?, ?)", (name, hashed_pw, email)) # Пишем в БД
+    db.commit() # Фиксируем (сохраняем) изменения в базе
+    flash("Регистрация успешна!", "success") # Сообщаем об успехе
+    return redirect(url_for('login')) # Отправляем пользователя на страницу входа
+
+@app.route('/login', methods=['GET', 'POST']) # Маршрут для входа
+def login(): # Функция обработки входа
+    if request.method == 'POST': # Если мы получили данные через POST (нажали кнопку "Войти")
+        email = request.form['email'] # Берем email
+        password = request.form['password'] # Берем пароль
+        hashed_pw = hashlib.sha256(password.encode()).hexdigest() # Опять хешируем, чтобы сравнить с тем, что в базе
+        user = get_db().execute("SELECT * FROM users WHERE email = ? AND password = ?", (email, hashed_pw)).fetchone() # Ищем юзера
+        if user: # Если нашли запись в базе
+            session.update({'user_id': user['id'], 'user_name': user['name']}) # Записываем данные юзера в сессию
+            return redirect(url_for('profile')) # Идем в профиль
+        flash("Неверный email или пароль", "error") # Если не нашли - ошибка
+    return render_template('login.html') # Рендерим форму входа
+
+@app.route('/profile') # Маршрут профиля
+def profile(): # Функция профиля
+    return render_template('profile.html', name=session.get('user_name')) if 'user_id' in session else redirect(url_for('login')) # Если юзер авторизован - показываем профиль, если нет - на логин
+
+@app.route('/logout') # Маршрут для выхода
+def logout(): # Функция выхода
+    session.clear() # Удаляем всю сессию (пользователь разлогинивается)
+    return redirect(url_for('login')) # Перенаправляем на вход
+
+if __name__ == '__main__': # Проверка, что файл запущен напрямую
+    with app.app_context(): # Входим в контекст приложения
+        get_db().execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, password TEXT, email TEXT)') # Создаем таблицу, если ее нет
+    app.run(debug=True) # Запускаем сервер в режиме отладки (при изменениях в коде сервер перезагрузится сам)

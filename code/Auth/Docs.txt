@@ -1,2 +1,0 @@
-created db 
-colums: id, name, password, email
