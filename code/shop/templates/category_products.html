@@ -1,71 +1,164 @@
 {% extends 'base.html' %}
-{% block title %}{{ category.name }}{% endblock %}
+{% block title %}{{ category.name | upper }} — DENIS{% endblock %}
 
 {% block extra_styles %}
 <style>
-    .breadcrumb { font-size: 0.88rem; color: #aaa; margin-bottom: 20px; }
-    .breadcrumb a { color: #2c3e50; text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
+    .cat-hero {
+        background: rgb(13, 13, 13);
+        padding: 56px 40px 0;
+        border-bottom: 1px solid rgb(237, 237, 237);
+    }
+    .cat-breadcrumb {
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        color: rgba(237,237,237,0.4);
+        margin-bottom: 24px;
+    }
+    .cat-breadcrumb a { color: rgba(237,237,237,0.4); }
+    .cat-breadcrumb a:hover { color: rgb(237,237,237); }
+    .cat-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        letter-spacing: 0.06em;
+        color: rgb(237, 237, 237);
+        margin-bottom: 40px;
+    }
 
-    .page-title { font-size: 1.6rem; color: #2c3e50; margin-bottom: 24px; }
+    .cat-section {
+        background: rgb(13, 13, 13);
+        padding: 40px;
+    }
 
+    /* Product grid */
     .products-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 18px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
     }
+    @media (max-width: 1100px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 800px)  { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .products-grid { grid-template-columns: 1fr; } }
+
     .product-card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        padding: 24px 20px;
+        position: relative;
+        overflow: hidden;
+        background: rgb(26, 26, 26);
+    }
+    .product-img-wrap { position: relative; }
+    .product-placeholder {
+        width: 100%;
+        aspect-ratio: 3/4;
+        background: rgb(30,30,30);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(237,237,237,0.1);
+        font-size: 3rem;
+    }
+    .product-card-overlay {
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgb(237, 237, 237);
+        opacity: 0;
+        transition: opacity 0.2s;
+        pointer-events: none;
+    }
+    .product-card:hover .product-card-overlay { opacity: 1; }
+
+    .product-num {
+        position: absolute;
+        top: 14px;
+        left: 16px;
+        color: rgb(237, 237, 237);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+    }
+    .product-view {
+        position: absolute;
+        bottom: 14px;
+        right: 16px;
+        background: rgb(237, 237, 237);
+        color: rgb(13, 13, 13);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        padding: 6px 14px;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    .product-card:hover .product-view { opacity: 1; }
+
+    .product-info {
+        padding: 14px 16px 18px;
+        border-top: 1px solid rgb(237,237,237);
+    }
+    .product-cat {
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        color: rgba(237,237,237,0.5);
+        margin-bottom: 4px;
+    }
+    .product-name {
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        color: rgb(237, 237, 237);
+        margin-bottom: 6px;
+    }
+    .product-price { font-size: 0.9rem; color: rgb(237, 237, 237); }
+
+    .empty-state {
         text-align: center;
-        transition: box-shadow 0.2s, transform 0.2s;
+        padding: 80px 20px;
+        color: rgba(237,237,237,0.3);
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        grid-column: 1 / -1;
     }
-    .product-card:hover {
-        box-shadow: 0 6px 20px rgba(0,0,0,0.14);
-        transform: translateY(-3px);
-    }
-    .product-card .prod-icon { font-size: 2rem; margin-bottom: 10px; }
-    .product-card .prod-name { font-size: 1rem; font-weight: 600; color: #2c3e50; margin-bottom: 8px; }
-    .product-card .prod-price {
-        font-size: 1.1rem;
-        color: #27ae60;
-        font-weight: 700;
-    }
-    .empty { color: #aaa; text-align: center; padding: 60px 0; font-size: 1.1rem; }
+
     .back-link {
         display: inline-block;
-        margin-top: 28px;
-        color: #2c3e50;
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 600;
+        margin-top: 48px;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        color: rgba(237,237,237,0.5);
+        border-bottom: 1px solid rgba(237,237,237,0.3);
+        padding-bottom: 2px;
+        transition: color 0.15s;
     }
-    .back-link:hover { text-decoration: underline; }
+    .back-link:hover { color: rgb(237,237,237); }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="breadcrumb">
-    <a href="{{ url_for('index') }}">Каталог</a> / {{ category.name }}
+<div class="cat-hero">
+    <div class="cat-breadcrumb">
+        <a href="{{ url_for('index') }}">КАТАЛОГ</a> / {{ category.name | upper }}
+    </div>
+    <h1 class="cat-title">{{ category.name | upper }}</h1>
 </div>
 
-<h1 class="page-title">{{ category.name }}</h1>
-
-{% if products %}
+<div class="cat-section">
     <div class="products-grid">
-        {% for product in products %}
+        {% if products %}
+            {% for product in products %}
             <div class="product-card">
-                <div class="prod-icon">📦</div>
-                <div class="prod-name">{{ product.name }}</div>
-                <div class="prod-price">{{ "%.0f"|format(product.price) }} ₽</div>
+                <div class="product-img-wrap">
+                    <div class="product-placeholder">◻</div>
+                    <div class="product-card-overlay"></div>
+                    <div class="product-num">{{ "%02d"|format(loop.index) }}</div>
+                    <div class="product-view">ПРОСМОТРЕТЬ</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-cat">{{ product.category.name | upper }}</div>
+                    <div class="product-name">{{ product.name | upper }}</div>
+                    <div class="product-price">{{ "%.0f"|format(product.price) }} ₽</div>
+                </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">В ЭТОЙ КАТЕГОРИИ ПОКА НЕТ ТОВАРОВ</div>
+        {% endif %}
     </div>
-{% else %}
-    <div class="empty">В этой категории пока нет товаров.</div>
-{% endif %}
 
-<a class="back-link" href="{{ url_for('index') }}">← Назад в каталог</a>
+    <a class="back-link" href="{{ url_for('index') }}">← НАЗАД В КАТАЛОГ</a>
+</div>
 {% endblock %}

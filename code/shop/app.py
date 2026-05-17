@@ -58,7 +58,8 @@ def seed_data():
 @app.route('/')
 def index():
     categories = Category.query.all()
-    return render_template('catalog.html', categories=categories)
+    products   = Product.query.all()
+    return render_template('catalog.html', categories=categories, products=products)
 
 # --- Category products ---
 @app.route('/category/<int:category_id>')

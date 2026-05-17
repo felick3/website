@@ -1,0 +1,797 @@
+<html>
+
+<head>
+    <style>
+        .style-0 {
+            cursor: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            transition: opacity 0.2s ease-in;
+        }
+
+        .style-1 {
+            position: relative;
+            flex: 1 0 0px;
+            display: block;
+        }
+
+        .style-2 {
+            background-color: rgb(13, 13, 13);
+        }
+
+        .style-3 {
+            background-color: rgb(26, 26, 26);
+            border-color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-4 {
+            font-family: &quot;
+            Playfair Display&quot;
+            ,
+            serif;
+            color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+        }
+
+        .style-5 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-6 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-7 {
+            background-color: rgb(13, 13, 13);
+        }
+
+        .style-8 {
+            scrollbar-width: none;
+        }
+
+        .style-9 {
+            width: 800px;
+        }
+
+        .style-10 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-11 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-12 {
+            width: 800px;
+        }
+
+        .style-13 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-14 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-15 {
+            width: 800px;
+        }
+
+        .style-16 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-17 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-18 {
+            width: 800px;
+        }
+
+        .style-19 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-20 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-21 {
+            width: 800px;
+        }
+
+        .style-22 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-23 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-24 {
+            width: 800px;
+        }
+
+        .style-25 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-26 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-27 {
+            width: 800px;
+        }
+
+        .style-28 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-29 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-30 {
+            width: 800px;
+        }
+
+        .style-31 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-32 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-33 {
+            width: 800px;
+        }
+
+        .style-34 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-35 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-36 {
+            width: 800px;
+        }
+
+        .style-37 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-38 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-39 {
+            background-color: rgb(13, 13, 13);
+            border-color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-40 {
+            font-family: &quot;
+            Playfair Display&quot;
+            ,
+            serif;
+            color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+        }
+
+        .style-41 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            border-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-42 {
+            background-color: transparent;
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-43 {
+            background-color: transparent;
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-44 {
+            background-color: transparent;
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-45 {
+            background-color: transparent;
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-46 {
+            background-color: transparent;
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-47 {
+            background-color: transparent;
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-48 {
+            background-color: transparent;
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-49 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-50 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-51 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-52 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-53 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-54 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-55 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-56 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-57 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-58 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-59 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-60 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-61 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-62 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-63 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-64 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-65 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-66 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-67 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-68 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-69 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-70 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-71 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-72 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-73 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-74 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-75 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-76 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-77 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-78 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-79 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-80 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-81 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-82 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-83 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-84 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-85 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-86 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-87 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-88 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-89 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-90 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-91 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-92 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-93 {
+            background-color: rgb(237, 237, 237);
+            color: rgb(13, 13, 13);
+            color: rgb(13, 13, 13);
+        }
+
+        .style-94 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-95 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-96 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-97 {
+            background-color: rgb(26, 26, 26);
+            border-color: rgb(237, 237, 237);
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-98 {
+            font-family: &quot;
+            Playfair Display&quot;
+            ,
+            serif;
+            color: rgb(237, 237, 237);
+            color: rgb(237, 237, 237);
+        }
+
+        .style-99 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-100 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-101 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-102 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-103 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-104 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-105 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-106 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-107 {
+            border-color: rgb(237, 237, 237);
+        }
+
+        .style-108 {
+            color: rgb(237, 237, 237);
+        }
+
+        .style-109 {
+            color: rgb(237, 237, 237);
+        }
+    </style>
+</head>
+
+<body class="style-0">
+
+
+    <div class="">
+        <div class="">
+            <div class="">
+                <div class=""><svg width="24" height="24" fill="none" viewBox="0 0 24 24" class="">
+                        <path fill="currentColor" d="M13.992 12a.5.5 0 0 1 .5.507l-.002.172c-.049 1.564-.265 2.983-.598 4.064-.189.615-.425 1.149-.71 1.54-.276.38-.67.717-1.182.717-.513 0-.906-.337-1.183-.717-.284-.391-.52-.925-.71-1.54l-.055-.185c-.09-.322.175-.626.508-.605a.52.52 0 0 1 .467.375l.036.121c.173.561.369.98.563 1.246.2.276.333.305.374.305s.172-.028.374-.305c.194-.266.39-.685.562-1.246.3-.977.507-2.304.554-3.799l.002-.158a.5.5 0 0 1 .5-.492M7.44 10.054c.322-.091.625.173.606.506a.52.52 0 0 1-.374.467l-.122.037c-.56.172-.98.368-1.246.562-.277.202-.304.335-.304.374 0 .04.027.172.304.374.267.194.685.39 1.246.563.977.3 2.304.506 3.8.553l.157.002a.5.5 0 0 1-.015 1l-.171-.003c-1.564-.049-2.983-.264-4.065-.596-.614-.19-1.148-.426-1.54-.71C5.336 12.906 5 12.513 5 12s.336-.906.716-1.183c.392-.284.926-.52 1.54-.71zm5.238-.543c1.564.048 2.983.264 4.065.596.615.19 1.149.426 1.54.71.38.277.717.67.717 1.183s-.337.906-.717 1.183c-.391.284-.925.52-1.54.71q-.09.027-.185.053c-.322.09-.625-.174-.605-.508a.52.52 0 0 1 .374-.465l.122-.037c.561-.172.98-.368 1.246-.562.277-.202.305-.335.305-.374 0-.04-.028-.172-.305-.374-.267-.194-.685-.39-1.246-.562-.977-.301-2.304-.508-3.799-.554l-.158-.002a.5.5 0 0 1 .015-1zM12 5c.512 0 .906.337 1.182.717.285.391.521.925.71 1.54q.028.09.054.183a.484.484 0 0 1-.508.606.52.52 0 0 1-.467-.375l-.035-.12c-.172-.561-.368-.98-.562-1.246C12.172 6.028 12.039 6 12 6c-.04 0-.174.029-.374.305-.194.266-.39.685-.563 1.246-.31 1.01-.52 2.393-.558 3.949A.51.51 0 0 1 10 12a.49.49 0 0 1-.495-.5c.038-1.634.257-3.12.602-4.243.19-.615.426-1.149.71-1.54.277-.38.67-.717 1.183-.717" class=""></path>
+                    </svg></div>
+                <div class="">
+                    <p class="">Created with Figma Make</p>
+                </div>
+                <div class=""><a target="_blank" href="https://www.figma.com/community/file/1630270756618633435?openSignupModal=true" rel="noreferrer" class="">Remix</a>
+                    <div class=""><button title="More options" aria-label="More options" class=""><svg width="24" height="24" fill="none" viewBox="0 0 24 24" class="">
+                                <path fill="currentColor" d="M6 10.5C6.82843 10.5 7.5 11.1716 7.5 12C7.5 12.8284 6.82843 13.5 6 13.5C5.17157 13.5 4.5 12.8284 4.5 12C4.5 11.1716 5.17157 10.5 6 10.5ZM12 10.5C12.8284 10.5 13.5 11.1716 13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5ZM18 10.5C18.8284 10.5 19.5 11.1716 19.5 12C19.5 12.8284 18.8284 13.5 18 13.5C17.1716 13.5 16.5 12.8284 16.5 12C16.5 11.1716 17.1716 10.5 18 10.5Z" class=""></path>
+                            </svg></button></div>
+                    <div class=""><button aria-label="Close" title="Close" class=""><svg width="24" height="24" fill="none" viewBox="0 0 24 24" class="">
+                                <path fill="currentColor" d="M16.6465 6.64648C16.8417 6.45122 17.1583 6.45122 17.3535 6.64648C17.5488 6.84175 17.5488 7.15825 17.3535 7.35352L12.707 12L17.3535 16.6465C17.5488 16.8417 17.5488 17.1583 17.3535 17.3535C17.1583 17.5488 16.8417 17.5488 16.6465 17.3535L12 12.707L7.35352 17.3535C7.15825 17.5488 6.84175 17.5488 6.64648 17.3535C6.45122 17.1583 6.45122 16.8417 6.64648 16.6465L11.293 12L6.64648 7.35352C6.45127 7.15825 6.45124 6.84173 6.64648 6.64648C6.84173 6.45129 7.15827 6.45129 7.35352 6.64648L12 11.293L16.6465 6.64648Z" class=""></path>
+                            </svg></button></div>
+                </div>
+            </div>
+            <div class="">
+                <div class="style-1">
+                    <div class="style-2">
+                        <header class="style-3">
+                            <div class="">
+                                <div class="">
+                                    <div class=""></div>
+                                    <div class=""><a href="/" class="style-4">DENIS</a></div>
+                                    <div class=""><button class="style-5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="">
+                                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" class=""></path>
+                                                <circle cx="12" cy="7" r="4" class=""></circle>
+                                            </svg></button><button class="style-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="">
+                                                <circle cx="8" cy="21" r="1" class=""></circle>
+                                                <circle cx="19" cy="21" r="1" class=""></circle>
+                                                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" class=""></path>
+                                            </svg></button></div>
+                                </div>
+                            </div>
+                        </header>
+                        <main class="">
+                            <section class="style-7">
+                                <div class="style-8">
+                                    <div class="style-9">
+                                        <div class=""><video class="" autoplay="" loop="" playsinline="">
+                                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" class="" />
+                                            </video>
+                                            <div class="style-10"></div>
+                                        </div>
+                                        <div class="style-11">01</div>
+                                    </div>
+                                    <div class="style-12">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1558769132-cb1aea1f8cf8?w=800" alt="Медиа 2" class="" />
+                                            <div class="style-13"></div>
+                                        </div>
+                                        <div class="style-14">02</div>
+                                    </div>
+                                    <div class="style-15">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800" alt="Медиа 3" class="" />
+                                            <div class="style-16"></div>
+                                        </div>
+                                        <div class="style-17">03</div>
+                                    </div>
+                                    <div class="style-18">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=800" alt="Медиа 4" class="" />
+                                            <div class="style-19"></div>
+                                        </div>
+                                        <div class="style-20">04</div>
+                                    </div>
+                                    <div class="style-21">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=800" alt="Медиа 5" class="" />
+                                            <div class="style-22"></div>
+                                        </div>
+                                        <div class="style-23">05</div>
+                                    </div>
+                                    <div class="style-24">
+                                        <div class=""><video class="" autoplay="" loop="" playsinline="">
+                                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" class="" />
+                                            </video>
+                                            <div class="style-25"></div>
+                                        </div>
+                                        <div class="style-26">06</div>
+                                    </div>
+                                    <div class="style-27">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1558769132-cb1aea1f8cf8?w=800" alt="Медиа 7" class="" />
+                                            <div class="style-28"></div>
+                                        </div>
+                                        <div class="style-29">07</div>
+                                    </div>
+                                    <div class="style-30">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800" alt="Медиа 8" class="" />
+                                            <div class="style-31"></div>
+                                        </div>
+                                        <div class="style-32">08</div>
+                                    </div>
+                                    <div class="style-33">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=800" alt="Медиа 9" class="" />
+                                            <div class="style-34"></div>
+                                        </div>
+                                        <div class="style-35">09</div>
+                                    </div>
+                                    <div class="style-36">
+                                        <div class=""><img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=800" alt="Медиа 10" class="" />
+                                            <div class="style-37"></div>
+                                        </div>
+                                        <div class="style-38">10</div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="style-39">
+                                <div class="">
+                                    <div class="">
+                                        <h2 class="style-40">КАТАЛОГ</h2>
+                                    </div>
+                                    <div class="">
+                                        <div class=""><button class="style-41">ALL</button><button class="style-42">ХУДИ</button><button class="style-43">ЗИП-ХУДИ</button><button class="style-44">ЛОНГСЛИВЫ</button><button class="style-45">ФУТБОЛКИ</button><button class="style-46">ДЖИНСЫ</button><button class="style-47">ШОРТЫ</button><button class="style-48">СУМКИ</button></div>
+                                        <div class="">
+                                            <div class="">
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600" alt="АСИММЕТРИЧНАЯ КУРТКА" class="" />
+                                                        <div class="style-49"></div>
+                                                        <div class="style-50">01</div>
+                                                        <div class="style-51">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-52">ХУДИ</div>
+                                                        <h3 class="style-53">АСИММЕТРИЧНАЯ КУРТКА</h3>
+                                                        <div class="style-54">68 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1594938291221-94f18cbb5660?w=600" alt="ШИРОКИЕ БРЮКИ" class="" />
+                                                        <div class="style-55"></div>
+                                                        <div class="style-56">02</div>
+                                                        <div class="style-57">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-58">ДЖИНСЫ</div>
+                                                        <h3 class="style-59">ШИРОКИЕ БРЮКИ</h3>
+                                                        <div class="style-60">42 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600" alt="ДЕКОНСТРУКТИВНАЯ РУБАШКА" class="" />
+                                                        <div class="style-61"></div>
+                                                        <div class="style-62">03</div>
+                                                        <div class="style-63">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-64">ЛОНГСЛИВЫ</div>
+                                                        <h3 class="style-65">ДЕКОНСТРУКТИВНАЯ РУБАШКА</h3>
+                                                        <div class="style-66">35 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600" alt="OVERSIZED ХУДИ" class="" />
+                                                        <div class="style-67"></div>
+                                                        <div class="style-68">04</div>
+                                                        <div class="style-69">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-70">ХУДИ</div>
+                                                        <h3 class="style-71">OVERSIZED ХУДИ</h3>
+                                                        <div class="style-72">52 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600" alt="КАРГО ШТАНЫ" class="" />
+                                                        <div class="style-73"></div>
+                                                        <div class="style-74">05</div>
+                                                        <div class="style-75">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-76">ШОРТЫ</div>
+                                                        <h3 class="style-77">КАРГО ШТАНЫ</h3>
+                                                        <div class="style-78">48 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1622519407650-3df9883f76e5?w=600" alt="МИНИМАЛИСТИЧНЫЙ ЖИЛЕТ" class="" />
+                                                        <div class="style-79"></div>
+                                                        <div class="style-80">06</div>
+                                                        <div class="style-81">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-82">ФУТБОЛКИ</div>
+                                                        <h3 class="style-83">МИНИМАЛИСТИЧНЫЙ ЖИЛЕТ</h3>
+                                                        <div class="style-84">38 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600" alt="ЗИП-ХУДИ ОВЕРСАЙЗ" class="" />
+                                                        <div class="style-85"></div>
+                                                        <div class="style-86">07</div>
+                                                        <div class="style-87">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-88">ЗИП-ХУДИ</div>
+                                                        <h3 class="style-89">ЗИП-ХУДИ ОВЕРСАЙЗ</h3>
+                                                        <div class="style-90">58 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=""><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="КОЖАНАЯ СУМКА" class="" />
+                                                        <div class="style-91"></div>
+                                                        <div class="style-92">08</div>
+                                                        <div class="style-93">ПРОСМОТРЕТЬ</div>
+                                                    </div>
+                                                    <div class="">
+                                                        <div class="style-94">СУМКИ</div>
+                                                        <h3 class="style-95">КОЖАНАЯ СУМКА</h3>
+                                                        <div class="style-96">45 000 ₽</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </main>
+                        <footer class="style-97">
+                            <div class="">
+                                <div class="">
+                                    <div class="">
+                                        <h3 class="style-98">DENIS</h3>
+                                        <p class="style-99">Минималистичная одежда, вдохновленная авангардным дизайном и скейтборд-культурой.</p>
+                                    </div>
+                                    <div class="">
+                                        <h4 class="style-100">КОНТАКТЫ</h4>
+                                        <div class="style-101">
+                                            <div class=""><a href="mailto:info@denis-studio.ru" class="">info@denis-studio.ru</a></div>
+                                            <div class="">поддержка - юз телеграмма</div>
+                                            <div class=""><a href="#" class="style-102" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="">
+                                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" class=""></rect>
+                                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" class=""></path>
+                                                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" class=""></line>
+                                                    </svg></a><a href="#" class="style-103" title="TikTok"><svg class="" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" class=""></path>
+                                                    </svg></a><a href="#" class="style-104" title="VK"><svg class="" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.18 14.38h-1.8c-.64 0-.84-.51-1.99-1.66-.99-.96-1.43-1.09-1.69-1.09-.34 0-.44.1-.44.59v1.51c0 .41-.13.65-1.2.65-1.77 0-3.73-1.08-5.12-3.08-2.1-2.98-2.67-5.22-2.67-5.68 0-.26.1-.5.59-.5h1.8c.44 0 .61.2.78.68.85 2.42 2.27 4.54 2.86 4.54.22 0 .32-.1.32-.66v-2.56c-.07-1.32-.77-1.43-.77-1.9 0-.21.17-.42.45-.42h2.83c.37 0 .51.2.51.64v3.45c0 .37.17.51.27.51.22 0 .4-.14.81-.55 1.24-1.39 2.13-3.54 2.13-3.54.12-.26.31-.5.75-.5h1.8c.54 0 .66.28.54.66-.21.96-2.42 4.06-2.42 4.06-.19.3-.26.44 0 .77.19.25.82.8 1.24 1.29.77.88 1.37 1.62 1.53 2.13.16.51-.09.77-.6.77z" class=""></path>
+                                                    </svg></a><a href="#" class="style-105" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="">
+                                                        <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" class=""></path>
+                                                        <path d="m21.854 2.147-10.94 10.939" class=""></path>
+                                                    </svg></a><a href="#" class="style-106" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="">
+                                                        <rect width="20" height="16" x="2" y="4" rx="2" class=""></rect>
+                                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" class=""></path>
+                                                    </svg></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="style-107">
+                                    <p class="style-108">© 2026 DENIS STUDIO</p>
+                                    <div class="style-109"><a href="#" class="">КОНФИДЕНЦИАЛЬНОСТЬ</a><a href="#" class="">УСЛОВИЯ</a><a href="#" class="">COOKIES</a></div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <noscript data-nosnippet="" class="">
+        <main style="height: 100vh; width: 100vw; background-color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <h1 style="font-size: 24px; padding: 8px; color: black">
+                This site requires JavaScript
+            </h1>
+            <p style="font-size: 16px; padding: 8px; color: #00000080">To view this website, enable JavaScript in your browser settings and reload the page.</p>
+            <form style="margin-top: 12px;" action="">
+                <button type="submit" style="font-size: 14px; color: black; border: 1px solid #0000001a; border-radius: 5px; width: 256px; height: 32px;">
+                    Reload page
+                </button>
+            </form>
+        </main>
+    </noscript>
+    <veepn-lock-screen class=""></veepn-lock-screen>
+</body>
+
+</html>

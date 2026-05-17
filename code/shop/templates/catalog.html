@@ -1,54 +1,325 @@
 {% extends 'base.html' %}
-{% block title %}Каталог товаров{% endblock %}
+{% block title %}DENIS — Каталог{% endblock %}
 
 {% block extra_styles %}
 <style>
-    .page-title { font-size: 1.8rem; color: #2c3e50; margin-bottom: 8px; }
-    .page-subtitle { color: #888; margin-bottom: 28px; font-size: 0.95rem; }
-
-    .categories-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 20px;
+    /* ── Hero Scroll ── */
+    .hero {
+        background-color: rgb(13, 13, 13);
+        overflow: hidden;
+        padding: 40px 0;
     }
-    .category-card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        padding: 28px 24px;
-        text-align: center;
-        text-decoration: none;
-        color: #333;
-        transition: box-shadow 0.2s, transform 0.2s;
+    /* Belt = animated wrapper; track = one copy of items */
+    .hero-belt {
+        display: flex;
+        width: max-content;
+        animation: heroScroll 40s linear infinite;
+    }
+    .hero-belt:hover { animation-play-state: paused; }
+    .hero-track { display: flex; }
+
+    @keyframes heroScroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .hero-item {
+        flex: 0 0 520px;
+        position: relative;
+    }
+    .hero-item img,
+    .hero-item video {
+        width: 100%;
+        height: 640px;
+        object-fit: cover;
         display: block;
     }
-    .category-card:hover {
-        box-shadow: 0 6px 20px rgba(0,0,0,0.14);
-        transform: translateY(-3px);
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        border-right: 1px solid rgb(237, 237, 237);
+        pointer-events: none;
     }
-    .category-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
-    .category-card .name { font-size: 1.1rem; font-weight: 600; color: #2c3e50; }
-    .category-card .count { font-size: 0.82rem; color: #aaa; margin-top: 6px; }
+    .hero-num {
+        position: absolute;
+        bottom: 16px;
+        left: 20px;
+        color: rgb(237, 237, 237);
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+    }
 
-    .empty { color: #aaa; text-align: center; padding: 60px 0; font-size: 1.1rem; }
+    /* ── Catalog Section ── */
+    .catalog-section {
+        background-color: rgb(13, 13, 13);
+        padding: 64px 40px;
+    }
+    .catalog-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+    .catalog-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        color: rgb(237, 237, 237);
+        letter-spacing: 0.06em;
+    }
+    /* Filter buttons */
+    .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 40px;
+    }
+    .filter-btn {
+        background: transparent;
+        color: rgb(237, 237, 237);
+        border: 1px solid rgb(237, 237, 237);
+        padding: 8px 18px;
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        transition: background 0.15s, color 0.15s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+        background: rgb(237, 237, 237);
+        color: rgb(13, 13, 13);
+    }
+
+    /* Product grid */
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+    }
+    @media (max-width: 1100px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 800px)  { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .products-grid { grid-template-columns: 1fr; } }
+
+    .product-card {
+        position: relative;
+        overflow: hidden;
+        background: rgb(26, 26, 26);
+    }
+    .product-card.hidden { display: none; }
+
+    .product-img-wrap { position: relative; }
+    .product-img-wrap img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+
+    .product-card-overlay {
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgb(237, 237, 237);
+        opacity: 0;
+        transition: opacity 0.2s;
+        pointer-events: none;
+    }
+    .product-card:hover .product-card-overlay { opacity: 1; }
+
+    .product-num {
+        position: absolute;
+        top: 14px;
+        left: 16px;
+        color: rgb(237, 237, 237);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+    }
+    .product-view {
+        position: absolute;
+        bottom: 14px;
+        right: 16px;
+        background: rgb(237, 237, 237);
+        color: rgb(13, 13, 13);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        padding: 6px 14px;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    .product-card:hover .product-view { opacity: 1; }
+
+    .product-info {
+        padding: 14px 16px 18px;
+        border-top: 1px solid rgb(237,237,237);
+    }
+    .product-cat {
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        color: rgba(237,237,237,0.5);
+        margin-bottom: 4px;
+    }
+    .product-name {
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        color: rgb(237, 237, 237);
+        margin-bottom: 6px;
+    }
+    .product-price {
+        font-size: 0.9rem;
+        color: rgb(237, 237, 237);
+    }
+
+    /* Placeholder images for products without images */
+    .product-placeholder {
+        width: 100%;
+        aspect-ratio: 3/4;
+        background: rgb(30,30,30);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(237,237,237,0.15);
+        font-size: 3rem;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        color: rgba(237,237,237,0.3);
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        grid-column: 1 / -1;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<h1 class="page-title">Каталог товаров</h1>
-<p class="page-subtitle">Выберите категорию, чтобы просмотреть товары</p>
 
-{% if categories %}
-    <div class="categories-grid">
-        {% for category in categories %}
-            <a href="{{ url_for('category_products', category_id=category.id) }}" class="category-card">
-                <div class="icon">🗂️</div>
-                <div class="name">{{ category.name }}</div>
-                <div class="count">{{ category.products | length }} товаров</div>
-            </a>
+<!-- ── Hero Scroll Section ── -->
+<section class="hero">
+    <div class="hero-belt" id="heroBelt">
+    <div class="hero-track" id="heroTrack">
+        <div class="hero-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-num">01</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1558769132-cb1aea1f8cf8?w=800" alt="02">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">02</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800" alt="03">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">03</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=800" alt="04">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">04</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=800" alt="05">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">05</div>
+        </div>
+        <div class="hero-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-num">06</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800" alt="07">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">07</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800" alt="08">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">08</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1622519407650-3df9883f76e5?w=800" alt="09">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">09</div>
+        </div>
+        <div class="hero-item">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800" alt="10">
+            <div class="hero-overlay"></div>
+            <div class="hero-num">10</div>
+        </div>
+    </div><!-- /.hero-track -->
+    </div><!-- /.hero-belt -->
+</section>
+
+<!-- ── Catalog Section ── -->
+<section class="catalog-section">
+    <div class="catalog-header">
+        <h2 class="catalog-title">КАТАЛОГ</h2>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        {% for cat in categories %}
+            <button class="filter-btn" data-filter="{{ cat.name | upper }}">{{ cat.name | upper }}</button>
         {% endfor %}
     </div>
-{% else %}
-    <div class="empty">Категории пока не добавлены.</div>
-{% endif %}
+
+    <!-- Products grid -->
+    <div class="products-grid" id="productsGrid">
+        {% if products %}
+            {% for product in products %}
+            <div class="product-card" data-category="{{ product.category.name | upper }}">
+                <div class="product-img-wrap">
+                    <div class="product-placeholder">◻</div>
+                    <div class="product-card-overlay"></div>
+                    <div class="product-num">{{ "%02d"|format(loop.index) }}</div>
+                    <div class="product-view">ПРОСМОТРЕТЬ</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-cat">{{ product.category.name | upper }}</div>
+                    <div class="product-name">{{ product.name | upper }}</div>
+                    <div class="product-price">{{ "%.0f"|format(product.price) }} ₽</div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">ТОВАРЫ СКОРО ПОЯВЯТСЯ</div>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+    // ── Filter logic ──
+    const btns  = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.product-card');
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // ── Hero infinite auto-scroll: clone the inner track into the belt ──
+    const belt  = document.getElementById('heroBelt');
+    const track = document.getElementById('heroTrack');
+    const clone = track.cloneNode(true);
+    clone.id = '';
+    clone.setAttribute('aria-hidden', 'true');
+    belt.appendChild(clone);   // belt now has [track][clone] side-by-side
+    // animation moves belt 0 → -50% (= exactly one track width) → seamless loop
+</script>
 {% endblock %}
