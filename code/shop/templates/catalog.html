@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Каталог товаров{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .page-title { font-size: 1.8rem; color: #2c3e50; margin-bottom: 8px; }
+    .page-subtitle { color: #888; margin-bottom: 28px; font-size: 0.95rem; }
+
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .category-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 28px 24px;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        transition: box-shadow 0.2s, transform 0.2s;
+        display: block;
+    }
+    .category-card:hover {
+        box-shadow: 0 6px 20px rgba(0,0,0,0.14);
+        transform: translateY(-3px);
+    }
+    .category-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .category-card .name { font-size: 1.1rem; font-weight: 600; color: #2c3e50; }
+    .category-card .count { font-size: 0.82rem; color: #aaa; margin-top: 6px; }
+
+    .empty { color: #aaa; text-align: center; padding: 60px 0; font-size: 1.1rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Каталог товаров</h1>
+<p class="page-subtitle">Выберите категорию, чтобы просмотреть товары</p>
+
+{% if categories %}
+    <div class="categories-grid">
+        {% for category in categories %}
+            <a href="{{ url_for('category_products', category_id=category.id) }}" class="category-card">
+                <div class="icon">🗂️</div>
+                <div class="name">{{ category.name }}</div>
+                <div class="count">{{ category.products | length }} товаров</div>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty">Категории пока не добавлены.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Вход{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .auth-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 36px 40px;
+    }
+    .auth-card h1 { margin-bottom: 24px; font-size: 1.5rem; color: #2c3e50; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 600; }
+    .form-group input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: #2c3e50; outline: none; }
+    .btn-primary {
+        width: 100%;
+        padding: 11px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #1a252f; }
+    .auth-footer { text-align: center; margin-top: 18px; font-size: 0.9rem; color: #555; }
+    .auth-footer a { color: #2c3e50; font-weight: 600; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-card">
+    <h1>Вход</h1>
+    <form method="POST" action="{{ url_for('login') }}">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="example@mail.com">
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn-primary">Войти</button>
+    </form>
+    <div class="auth-footer">
+        Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a>
+    </div>
+</div>
+{% endblock %}

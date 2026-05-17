@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .breadcrumb { font-size: 0.88rem; color: #aaa; margin-bottom: 20px; }
+    .breadcrumb a { color: #2c3e50; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .page-title { font-size: 1.6rem; color: #2c3e50; margin-bottom: 24px; }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 18px;
+    }
+    .product-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 24px 20px;
+        text-align: center;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .product-card:hover {
+        box-shadow: 0 6px 20px rgba(0,0,0,0.14);
+        transform: translateY(-3px);
+    }
+    .product-card .prod-icon { font-size: 2rem; margin-bottom: 10px; }
+    .product-card .prod-name { font-size: 1rem; font-weight: 600; color: #2c3e50; margin-bottom: 8px; }
+    .product-card .prod-price {
+        font-size: 1.1rem;
+        color: #27ae60;
+        font-weight: 700;
+    }
+    .empty { color: #aaa; text-align: center; padding: 60px 0; font-size: 1.1rem; }
+    .back-link {
+        display: inline-block;
+        margin-top: 28px;
+        color: #2c3e50;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    .back-link:hover { text-decoration: underline; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{{ url_for('index') }}">Каталог</a> / {{ category.name }}
+</div>
+
+<h1 class="page-title">{{ category.name }}</h1>
+
+{% if products %}
+    <div class="products-grid">
+        {% for product in products %}
+            <div class="product-card">
+                <div class="prod-icon">📦</div>
+                <div class="prod-name">{{ product.name }}</div>
+                <div class="prod-price">{{ "%.0f"|format(product.price) }} ₽</div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty">В этой категории пока нет товаров.</div>
+{% endif %}
+
+<a class="back-link" href="{{ url_for('index') }}">← Назад в каталог</a>
+{% endblock %}
