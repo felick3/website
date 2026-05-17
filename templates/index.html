@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DENIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">D E N I S</a>
+  <div class="header-icons">
+    <button title="Профиль">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+        <circle cx="12" cy="7" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+    </button>
+    <button title="Корзина" id="cart-icon-btn">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="hero">
+  <div class="slides-track" id="track">
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1536766820879-059fec98ec0a?w=1600&q=80" alt="Slide 1">
+      <span class="slide-num">01</span>
+    </div>
+    <div class="slide">
+      <div class="slide-placeholder">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+        </svg>
+      </div>
+      <span class="slide-num">02</span>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" alt="Slide 3">
+      <span class="slide-num">03</span>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=1600&q=80" alt="Slide 4">
+      <span class="slide-num">04</span>
+    </div>
+  </div>
+  <nav class="hero-nav" id="hero-nav">
+    <div class="hero-dot active" data-idx="0">01</div>
+    <div class="hero-dot" data-idx="1">02</div>
+    <div class="hero-dot" data-idx="2">03</div>
+    <div class="hero-dot" data-idx="3">04</div>
+  </nav>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <h2 class="catalog-title">К А Т А Л О Г</h2>
+  <div class="catalog-inner">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <button class="cat-btn active" data-cat="all">Все</button>
+      <button class="cat-btn" data-cat="hoodie">Худи</button>
+      <button class="cat-btn" data-cat="zip">Зип-Худи</button>
+      <button class="cat-btn" data-cat="longsleeve">Лонгсливы</button>
+      <button class="cat-btn" data-cat="tshirt">Футболки</button>
+      <button class="cat-btn" data-cat="jeans">Джинсы</button>
+      <button class="cat-btn" data-cat="shorts">Шорты</button>
+    </aside>
+
+    <!-- Grid -->
+    <div class="product-grid" id="product-grid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">D E N I S</div>
+      <p class="footer-desc">Минималистичная одежда, вдохновленная авангардным дизайном и скейтборд-культурой.</p>
+      <div class="footer-socials">
+        <a href="#" title="Instagram">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="mailto:info@shadow-studio.ru" title="Email">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Информация</div>
+      <ul class="footer-links">
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Доставка и возврат</a></li>
+        <li><a href="#">Таблица размеров</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Контакты</div>
+      <div class="footer-contact-line">
+        ул. Тверская, 15<br>
+        Москва, 125009<br><br>
+        info@shadow-studio.ru<br>
+        +7 (495) 123-45-67
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Denis Studio</span>
+    <div class="footer-legal">
+      <a href="#">Конфиденциальность</a>
+      <a href="#">Условия</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-left">
+      <div class="modal-img-main" id="modal-img-main">
+        <!-- filled by JS -->
+      </div>
+      <div class="modal-arrows">
+        <button class="arrow-btn" id="modal-prev">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="arrow-btn" id="modal-next">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="modal-dots" id="modal-dots"></div>
+      <div class="modal-thumbs" id="modal-thumbs"></div>
+    </div>
+    <div class="modal-right" style="position:relative">
+      <button class="modal-close" id="modal-close">×</button>
+      <div class="modal-category" id="modal-cat"></div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-price" id="modal-price"></div>
+      <div class="modal-divider"></div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-label">Размер</div>
+      <div class="size-grid" id="size-grid">
+        <button class="size-btn active">XS</button>
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+      </div>
+      <div class="modal-label">Количество</div>
+      <div class="qty-wrap">
+        <button class="qty-btn" id="qty-minus">−</button>
+        <span class="qty-num" id="qty-num">1</span>
+        <button class="qty-btn" id="qty-plus">+</button>
+      </div>
+      <button class="add-btn" id="add-btn">Добавить в корзину</button>
+    </div>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
